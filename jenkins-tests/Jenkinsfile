@@ -1,15 +1,24 @@
 pipeline {
-  agent any    
+  agent any
+  tools {
+    nodejs 'node'
+  }
+
+  options {
+    timeout(time: 2, unit: 'MINUTES')
+  }
 
   stages {
     stage('Install dependencies') {
       steps {
+        // sh 'cd jenkins-tests && npm i'\
         sh 'echo hola'
+
       }
     }
     stage('Run tests') {
       steps {
-        sh 'echo hola2'
+        // sh 'cd jenkins-tests && npm t'
       }
     }
   }
