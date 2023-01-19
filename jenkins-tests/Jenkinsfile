@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    nodejs "16.19.0"
+    nodejs "16.19.0" //nombre de la herramienta en jenkins
   }
 
   options {
@@ -11,12 +11,12 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {        
-        sh 'echo hola'
+        sh 'cd jenkins-tests && npm i'
       }
     }
     stage('Run tests') {
       steps {
-        sh 'echo hola2'        
+        sh 'cd jenkins-tests && npm t'  
       }
     }
   }
